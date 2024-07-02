@@ -417,7 +417,6 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -430,7 +429,6 @@ export interface ApiPostPost extends Schema.CollectionType {
         };
       }>;
     image: Attribute.Media &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -455,10 +453,9 @@ export interface ApiPostPost extends Schema.CollectionType {
       'api::auteur.auteur'
     >;
     url: Attribute.Media &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
