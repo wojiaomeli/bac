@@ -431,7 +431,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     image: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     Date: Attribute.Date &

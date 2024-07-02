@@ -34,7 +34,7 @@
     },
     "image": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images",
@@ -44,7 +44,7 @@
       ],
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
     },
