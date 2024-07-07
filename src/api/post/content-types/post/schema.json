@@ -32,22 +32,6 @@
         }
       }
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "Date": {
       "type": "date",
       "pluginOptions": {
@@ -73,9 +57,9 @@
       "target": "api::auteur.auteur",
       "inversedBy": "posts"
     },
-    "url": {
+    "image": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images",
@@ -88,6 +72,14 @@
           "localized": true
         }
       }
+    },
+    "resume": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
     }
   }
 }

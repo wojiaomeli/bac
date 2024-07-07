@@ -428,12 +428,6 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     Date: Attribute.Date &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -452,7 +446,13 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToOne',
       'api::auteur.auteur'
     >;
-    url: Attribute.Media &
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    resume: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
