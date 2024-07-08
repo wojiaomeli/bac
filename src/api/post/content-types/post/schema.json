@@ -80,6 +80,12 @@
         }
       },
       "type": "blocks"
+    },
+    "categorie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categorie.categorie",
+      "inversedBy": "posts"
     }
   }
 }
