@@ -81,23 +81,19 @@
       },
       "type": "blocks"
     },
-    "categorie": {
+    "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::categorie.categorie",
       "inversedBy": "posts"
     },
-    "posts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post",
-      "mappedBy": "post"
-    },
-    "post": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::post.post",
-      "inversedBy": "posts"
+    "article": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
     }
   }
 }

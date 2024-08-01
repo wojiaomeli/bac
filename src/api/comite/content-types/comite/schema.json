@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comites",
+  "info": {
+    "singularName": "comite",
+    "pluralName": "comites",
+    "displayName": "Comité Scientifique",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "Presentation": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
