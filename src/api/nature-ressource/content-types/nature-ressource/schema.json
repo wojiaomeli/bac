@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "auteurs",
+  "collectionName": "nature_ressources",
   "info": {
-    "singularName": "auteur",
-    "pluralName": "auteurs",
-    "displayName": "auteur",
+    "singularName": "nature-ressource",
+    "pluralName": "nature-ressources",
+    "displayName": "Nature-ressource",
     "description": ""
   },
   "options": {
@@ -15,17 +15,11 @@
     "type": {
       "type": "string"
     },
-    "slug": {
-      "type": "uid"
-    },
     "posts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post",
-      "mappedBy": "auteur"
-    },
-    "DateTime": {
-      "type": "date"
+      "mappedBy": "nature_ressource"
     }
   }
 }

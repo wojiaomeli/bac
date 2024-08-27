@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "temoignage_videos",
+  "info": {
+    "singularName": "temoignage-video",
+    "pluralName": "temoignage-videos",
+    "displayName": "Temoignage-video",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "article": {
+      "type": "richtext"
+    },
+    "resume": {
+      "type": "blocks"
+    },
+    "video": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

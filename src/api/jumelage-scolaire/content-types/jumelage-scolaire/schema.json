@@ -31,6 +31,9 @@
     },
     "date": {
       "type": "date"
+    },
+    "resume": {
+      "type": "blocks"
     }
   }
 }

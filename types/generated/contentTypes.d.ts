@@ -800,7 +800,7 @@ export interface ApiAuteurAuteur extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Nom: Attribute.String;
+    type: Attribute.String;
     slug: Attribute.UID;
     posts: Attribute.Relation<
       'api::auteur.auteur',
@@ -912,6 +912,7 @@ export interface ApiJumelageScolaireJumelageScolaire
     Image: Attribute.Media;
     titre: Attribute.String;
     date: Attribute.Date;
+    resume: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -923,6 +924,43 @@ export interface ApiJumelageScolaireJumelageScolaire
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::jumelage-scolaire.jumelage-scolaire',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNatureRessourceNatureRessource
+  extends Schema.CollectionType {
+  collectionName: 'nature_ressources';
+  info: {
+    singularName: 'nature-ressource';
+    pluralName: 'nature-ressources';
+    displayName: 'Nature-ressource';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Attribute.String;
+    posts: Attribute.Relation<
+      'api::nature-ressource.nature-ressource',
+      'oneToMany',
+      'api::post.post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nature-ressource.nature-ressource',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nature-ressource.nature-ressource',
       'oneToOne',
       'admin::user'
     > &
@@ -948,12 +986,6 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    contenent: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1000,6 +1032,11 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    nature_ressource: Attribute.Relation<
+      'api::post.post',
+      'manyToOne',
+      'api::nature-ressource.nature-ressource'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1046,6 +1083,42 @@ export interface ApiRelationRelation extends Schema.CollectionType {
   };
 }
 
+export interface ApiTemoignageVideoTemoignageVideo
+  extends Schema.CollectionType {
+  collectionName: 'temoignage_videos';
+  info: {
+    singularName: 'temoignage-video';
+    pluralName: 'temoignage-videos';
+    displayName: 'Temoignage-video';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nom: Attribute.String;
+    image: Attribute.Media;
+    article: Attribute.RichText;
+    resume: Attribute.Blocks;
+    video: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::temoignage-video.temoignage-video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::temoignage-video.temoignage-video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1068,8 +1141,10 @@ declare module '@strapi/types' {
       'api::categorie.categorie': ApiCategorieCategorie;
       'api::comite.comite': ApiComiteComite;
       'api::jumelage-scolaire.jumelage-scolaire': ApiJumelageScolaireJumelageScolaire;
+      'api::nature-ressource.nature-ressource': ApiNatureRessourceNatureRessource;
       'api::post.post': ApiPostPost;
       'api::relation.relation': ApiRelationRelation;
+      'api::temoignage-video.temoignage-video': ApiTemoignageVideoTemoignageVideo;
     }
   }
 }

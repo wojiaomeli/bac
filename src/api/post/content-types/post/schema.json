@@ -24,14 +24,6 @@
         }
       }
     },
-    "contenent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "Date": {
       "type": "date",
       "pluginOptions": {
@@ -94,6 +86,12 @@
         }
       },
       "type": "richtext"
+    },
+    "nature_ressource": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::nature-ressource.nature-ressource",
+      "inversedBy": "posts"
     }
   }
 }
